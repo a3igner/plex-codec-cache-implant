@@ -1,0 +1,15 @@
+type,value,context,first_seen,confidence
+sha256,a9a309154493193c70bf6f805fe70e1bc4e9564e2f0e20cd1600c72587c7e65f,Plex codec-cache implant zz45fbb275.so - 1036800 bytes ELF64 x86-64 constructor-only,2026-10-17,confirmed
+sha256,b20f39fc00d242e706b6c30367ad811c676e0575050a4ec2f30104b696944b49,xmrig/RandomX miner dropped as /tmp/x12345 - 8350992 bytes,2026-10-17,confirmed
+url,http://217.60.194.116/docker,dropper fetched and piped to sh on every transcode,2026-10-17,confirmed
+ipv4,217.60.194.116,dropper host - AS213900 RS Computers L.L.C (AE),2026-10-17,confirmed
+domain,ota.proxystream.st,mining pool hostname,2026-10-17,confirmed
+ipv4,77.90.185.205,mining pool ota.proxystream.st tcp/3333 - AS213790 Limited Network LTD (GB),2026-10-17,confirmed
+ipv4,45.194.92.222,WAN session source authenticating as guest - AS215925 VPSVAULT.HOST LTD (GB),2026-10-17,confirmed
+ipv4,91.92.40.202,WAN session source authenticating as guest - AS197170 TechTies Inc. (SC),2026-10-17,probable
+filepath,Codecs/<set-id>-linux-x86_64/zz*.so,implant drop location inside Plex config tree - non-lib prefix,2026-10-17,confirmed
+filepath,/tmp/x12345,miner binary path,2026-10-17,confirmed
+filepath,/tmp/sh.lock,miner single-instance lock file,2026-10-17,confirmed
+process_arg,--rig-id plexdocker,operator rig identifier,2026-10-17,confirmed
+process_arg,--donate-level 5,xmrig donation setting used by the build,2026-10-17,confirmed
+tcp_port,3333,pool port used by this campaign,2026-10-17,confirmed

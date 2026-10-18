@@ -1,0 +1,12 @@
+Except where otherwise noted, this work is licensed under the Creative Commons
+Attribution 4.0 International License (CC BY 4.0).
+
+  https://creativecommons.org/licenses/by/4.0/
+
+You are free to share and adapt the material for any purpose, including commercial,
+provided you give appropriate credit.
+
+The YARA rules in `yara/` are additionally released for unrestricted use, modification
+and redistribution, with or without attribution.
+
+The malware samples themselves are not part of this repository and are not licensed here.

@@ -1,0 +1,224 @@
+{
+  "type": "bundle",
+  "id": "bundle--896e9677-6f8c-4a55-995b-185d86dfd7ad",
+  "objects": [
+    {
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "identity--13386dd4-b9f2-4074-bc58-fe20fbafb1fe",
+      "created": "2026-10-18T09:30:00.000Z",
+      "modified": "2026-10-18T09:30:00.000Z",
+      "name": "Independent incident responder",
+      "identity_class": "individual",
+      "description": "Defensive publication of post-exploitation artifacts from a Plex Media Server compromise. Contact via the repository issue tracker."
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ea3a5657-022d-4f49-b13c-ea90996c3109",
+      "created": "2026-10-18T09:30:00.000Z",
+      "modified": "2026-10-18T09:30:00.000Z",
+      "created_by_ref": "identity--13386dd4-b9f2-4074-bc58-fe20fbafb1fe",
+      "name": "Plex codec-cache implant (zz45fbb275.so)",
+      "description": "ELF64 x86-64 shared object, 1036800 bytes, no exports, no DT_NEEDED; .init_array constructor pipes the dropper into /bin/sh. Dropped into Plex Media Server's Codecs directory; loaded by Plex Transcoder on every transcode.",
+      "pattern": "[file:hashes.'SHA-256' = 'a9a309154493193c70bf6f805fe70e1bc4e9564e2f0e20cd1600c72587c7e65f']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-17T00:00:00.000Z",
+      "confidence": 95,
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "labels": [
+        "malware"
+      ],
+      "external_references": [
+        {
+          "source_name": "incident",
+          "description": "Plex codec-cache implant, 2026-10-17"
+        }
+      ]
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--42f040d0-85fa-4390-a778-a6eafbb874ca",
+      "created": "2026-10-18T09:30:00.000Z",
+      "modified": "2026-10-18T09:30:00.000Z",
+      "created_by_ref": "identity--13386dd4-b9f2-4074-bc58-fe20fbafb1fe",
+      "name": "xmrig-derived miner dropped as x12345",
+      "description": "ELF x86-64, 8350992 bytes, RandomX/Monero. Executed with --donate-level 5 and --rig-id plexdocker.",
+      "pattern": "[file:hashes.'SHA-256' = 'b20f39fc00d242e706b6c30367ad811c676e0575050a4ec2f30104b696944b49']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-17T00:00:00.000Z",
+      "confidence": 95,
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "labels": [
+        "malware"
+      ],
+      "external_references": [
+        {
+          "source_name": "incident",
+          "description": "Plex codec-cache implant, 2026-10-17"
+        }
+      ]
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d48fd371-980b-4221-a756-81994fe97bc9",
+      "created": "2026-10-18T09:30:00.000Z",
+      "modified": "2026-10-18T09:30:00.000Z",
+      "created_by_ref": "identity--13386dd4-b9f2-4074-bc58-fe20fbafb1fe",
+      "name": "Dropper URL",
+      "description": "HTTP endpoint fetched and piped to sh by the implant's constructor.",
+      "pattern": "[url:value = 'http://217.60.194.116/docker']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-17T00:00:00.000Z",
+      "confidence": 95,
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "labels": [
+        "malicious-activity"
+      ],
+      "external_references": [
+        {
+          "source_name": "incident",
+          "description": "Plex codec-cache implant, 2026-10-17"
+        }
+      ]
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--eb2c9836-9df7-4ac3-b295-f5aeabd8ed62",
+      "created": "2026-10-18T09:30:00.000Z",
+      "modified": "2026-10-18T09:30:00.000Z",
+      "created_by_ref": "identity--13386dd4-b9f2-4074-bc58-fe20fbafb1fe",
+      "name": "Dropper host",
+      "description": "Hosts the dropper script/binary. AS213900 RS Computers L.L.C.",
+      "pattern": "[ipv4-addr:value = '217.60.194.116']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-17T00:00:00.000Z",
+      "confidence": 95,
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "labels": [
+        "malicious-activity"
+      ],
+      "external_references": [
+        {
+          "source_name": "incident",
+          "description": "Plex codec-cache implant, 2026-10-17"
+        }
+      ]
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c4e51062-cf75-4936-9b0c-d16f4330d040",
+      "created": "2026-10-18T09:30:00.000Z",
+      "modified": "2026-10-18T09:30:00.000Z",
+      "created_by_ref": "identity--13386dd4-b9f2-4074-bc58-fe20fbafb1fe",
+      "name": "Mining pool hostname",
+      "description": "Stratum endpoint used by the miner on tcp/3333.",
+      "pattern": "[domain-name:value = 'ota.proxystream.st']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-17T00:00:00.000Z",
+      "confidence": 95,
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "labels": [
+        "malicious-activity"
+      ],
+      "external_references": [
+        {
+          "source_name": "incident",
+          "description": "Plex codec-cache implant, 2026-10-17"
+        }
+      ]
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--174859e8-7845-4bdc-ae5c-82d32897431e",
+      "created": "2026-10-18T09:30:00.000Z",
+      "modified": "2026-10-18T09:30:00.000Z",
+      "created_by_ref": "identity--13386dd4-b9f2-4074-bc58-fe20fbafb1fe",
+      "name": "Mining pool address",
+      "description": "Resolves ota.proxystream.st. AS213790 Limited Network LTD.",
+      "pattern": "[ipv4-addr:value = '77.90.185.205']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-17T00:00:00.000Z",
+      "confidence": 95,
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "labels": [
+        "malicious-activity"
+      ],
+      "external_references": [
+        {
+          "source_name": "incident",
+          "description": "Plex codec-cache implant, 2026-10-17"
+        }
+      ]
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--670f48b4-2020-45d7-a81c-102dcc66d216",
+      "created": "2026-10-18T09:30:00.000Z",
+      "modified": "2026-10-18T09:30:00.000Z",
+      "created_by_ref": "identity--13386dd4-b9f2-4074-bc58-fe20fbafb1fe",
+      "name": "Guest-authenticated session source",
+      "description": "WAN address seen authenticating as guest in Plex logs at the time the implant appeared. AS215925 VPSVAULT.HOST LTD.",
+      "pattern": "[ipv4-addr:value = '45.194.92.222']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-17T00:00:00.000Z",
+      "confidence": 85,
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "labels": [
+        "malicious-activity"
+      ],
+      "external_references": [
+        {
+          "source_name": "incident",
+          "description": "Plex codec-cache implant, 2026-10-17"
+        }
+      ]
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--56c3b196-f58e-429f-adef-096582e632bd",
+      "created": "2026-10-18T09:30:00.000Z",
+      "modified": "2026-10-18T09:30:00.000Z",
+      "created_by_ref": "identity--13386dd4-b9f2-4074-bc58-fe20fbafb1fe",
+      "name": "Second guest-authenticated session source",
+      "description": "Second WAN address authenticating as guest. AS197170 TechTies Inc.",
+      "pattern": "[ipv4-addr:value = '91.92.40.202']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-17T00:00:00.000Z",
+      "confidence": 70,
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "labels": [
+        "malicious-activity"
+      ],
+      "external_references": [
+        {
+          "source_name": "incident",
+          "description": "Plex codec-cache implant, 2026-10-17"
+        }
+      ]
+    }
+  ]
+}
